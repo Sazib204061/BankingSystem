@@ -14,14 +14,47 @@ namespace Banking_System
 
         public void CreateAccount()  //create regular account
         {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Account Number:");
+                    AccountNumber = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Account Number. Please enter a valid Account number.");
+                }
+            }
 
-            Console.WriteLine("Enter Account Number:");
-            AccountNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter Account Holder Name:");
-            AccountHolderName = Console.ReadLine();
-            Console.WriteLine("Enter Initial Balance:");
-            Balance = Convert.ToDouble(Console.ReadLine());
-            
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Account Holder Name:");
+                    AccountHolderName = Console.ReadLine();
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Account Holder Name. Please enter a valid Account Holder Name.");
+                }
+            }
+
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Initial Balance:");
+                    Balance = Convert.ToDouble(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Balance. Please enter a valid Balance.");
+                }
+            }
         }
 
         public void Deposit(double DepositAmount)

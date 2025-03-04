@@ -40,38 +40,183 @@ while (true)
     }
     else if (choice == "2")   //Deposit
     {
-        Console.WriteLine("Enter Account Number :");
-        int AccountNumber = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter Amount to Deposit:");
-        double DepositAmount = Convert.ToDouble(Console.ReadLine());
-        var CurrentAccount = Accounts[AccountNumber];
-        CurrentAccount.Deposit(DepositAmount);
+        while (true)
+        {
+
+            int AccountNumber;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Account Number:");
+                    AccountNumber = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Account Number. Please enter a valid Account number.");
+                }
+            }
+
+            double DepositAmount;
+
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Amount to Deposit:");
+                    DepositAmount = Convert.ToDouble(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Amount. Please enter a valid Amount.");
+                }
+            }
+            bool flag = false;
+
+            try     
+            {
+                var CurrentAccount = Accounts[AccountNumber];
+                CurrentAccount.Deposit(DepositAmount);
+                break;
+            }
+            catch (Exception e)
+            {
+                flag = true;
+                Console.WriteLine("Account NotFound!!!. Please enter a valid Account number.");
+            }
+            if (flag == false) break;
+        }
     }
     else if (choice == "3")    //Withdraw
     {
-        Console.WriteLine("Enter Account Number :");
-        int AccountNumber = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter Amount to Withdraw:");
-        double WithdrawAmount = Convert.ToDouble(Console.ReadLine());
-
-        var CurrentAccount = Accounts[AccountNumber];
-        CurrentAccount.Withdraw(WithdrawAmount);
-
+        while (true)
+        {
+            int AccountNumber;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Account Number:");
+                    AccountNumber = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Account Number. Please enter a valid Account number.");
+                }
+            }
+            double WithdrawAmount;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Amount to Withdraw:");
+                    WithdrawAmount = Convert.ToDouble(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Amount. Please enter a valid Amount.");
+                }
+            }
+            bool flag = false;
+            try
+            {
+                var CurrentAccount = Accounts[AccountNumber];
+                CurrentAccount.Withdraw(WithdrawAmount);
+                break;
+            }
+            catch (Exception e)
+            {
+                flag = true;
+                Console.WriteLine("Account NotFound!!!. Please enter a valid Account number.");
+            }
+            if (flag == false) break;
+        }
+        
     }
     else if (choice == "4")   //Check Balance
     {
-        Console.WriteLine("Enter Account Number :");
-        int AccountNumber = Convert.ToInt32(Console.ReadLine());
-        var CurrentAccount = Accounts[AccountNumber];
-        CurrentAccount.CheckBalance();
+        while (true)
+        {
+            int AccountNumber;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Account Number:");
+                    AccountNumber = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Account Number. Please enter a valid Account number.");
+                }
+            }
+            bool flag = false;
+            try
+            {
+                var CurrentAccount = Accounts[AccountNumber];
+                CurrentAccount.CheckBalance();
+                break;
+            }
+            catch (Exception e)
+            {
+                flag = true;
+                Console.WriteLine("Account NotFound!!!. Please enter a valid Account number.");
+            }
+            if (flag == false) break;
+        }
+
+
+        //Console.WriteLine("Enter Account Number :");
+        //int AccountNumber = Convert.ToInt32(Console.ReadLine());
+        //var CurrentAccount = Accounts[AccountNumber];
+        //CurrentAccount.CheckBalance();
     }
 
     else if(choice == "5")   //Apply Interest
     {
-        Console.WriteLine("Enter Account Number :");
-        int AccountNumber = Convert.ToInt32(Console.ReadLine());
-        var CurrentAccount = Accounts[AccountNumber];
-        CurrentAccount.ApplyInterest();
+
+        while (true)
+        {
+            int AccountNumber;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter Account Number:");
+                    AccountNumber = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid Account Number. Please enter a valid Account number.");
+                }
+            }
+            bool flag = false;
+            try
+            {
+                var CurrentAccount = Accounts[AccountNumber];
+                CurrentAccount.ApplyInterest();
+                break;
+            }
+            catch (Exception e)
+            {
+                flag = true;
+                Console.WriteLine("Account NotFound!!!. Please enter a valid Account number.");
+            }
+            if (flag == false) break;
+        }
+
+
+
+        //Console.WriteLine("Enter Account Number:");
+        //int AccountNumber = Convert.ToInt32(Console.ReadLine());        
+        //var CurrentAccount = Accounts[AccountNumber];
+        //CurrentAccount.ApplyInterest();
     }
     else
     {
