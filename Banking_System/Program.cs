@@ -24,7 +24,9 @@ while (true)
         if (AccountType == 1)   //regular account create
         {
             var RegularAccount = new SavingsAccount();
-            RegularAccount.CreateAccount();
+            RegularAccount.CreateAccount(ref Accounts);
+
+
 
             Accounts.Add(RegularAccount.AccountNumber, RegularAccount);
 
@@ -33,7 +35,7 @@ while (true)
         else if(AccountType == 2) //savings account create
         {
             var SavingsAccount = new SavingsAccount();
-            SavingsAccount.CreateAccount(2);           //apply popymorphism in CreateAccount method
+            SavingsAccount.CreateAccount(ref Accounts,true);           //apply popymorphism in CreateAccount method
             Accounts.Add(SavingsAccount.AccountNumber, SavingsAccount);
             Console.WriteLine("Savings Account Created Successfully.\n");
         }

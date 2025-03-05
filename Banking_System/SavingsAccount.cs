@@ -9,9 +9,13 @@ namespace Banking_System
     internal class SavingsAccount : BankAccount
     {
         private double InterestRate { get; set; }
+        public SavingsAccount()
+        {
+            InterestRate = -1;
+        }
 
 
-        public void CreateAccount(int x)      //CreateAccount method Overloaded with and Parameter. Create Savings Account
+        public void CreateAccount(ref Dictionary<int, SavingsAccount> Accounts, bool Interest)      //CreateAccount method Overloaded with and Parameter. Create Savings Account
         {
             while (true)
             {
@@ -19,6 +23,11 @@ namespace Banking_System
                 {
                     Console.WriteLine("Enter Account Number:");
                     AccountNumber = Convert.ToInt32(Console.ReadLine());
+                    if(Accounts.ContainsKey(AccountNumber))
+                    {
+                        Console.WriteLine("Account Number already exists. Please enter a different Account Number.");
+                        continue;
+                    }
                     break;
                 }
                 catch (Exception e)
@@ -69,9 +78,9 @@ namespace Banking_System
 
         public void ApplyInterest()
         {
-            if(InterestRate == 0)
+            if(InterestRate == -1)
             {
-                Console.WriteLine("Invalid Account Number!!!. Please enter a valid Account number.");
+                Console.WriteLine("Invalid Account Number!!!. This is not a valid Savings Account Number.");
                 return;
             }
             Balance += Balance * (InterestRate / 100);

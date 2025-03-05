@@ -12,14 +12,23 @@ namespace Banking_System
         protected string AccountHolderName { get; set; }
         protected double Balance { get; set; }
 
-        public void CreateAccount()  //create regular account
+        public void CreateAccount(ref Dictionary<int, SavingsAccount> Accounts)  //create regular account
         {
+            
+
             while (true)
             {
                 try
                 {
                     Console.WriteLine("Enter Account Number:");
                     AccountNumber = Convert.ToInt32(Console.ReadLine());
+
+                    if(Accounts.ContainsKey(AccountNumber))
+                    {
+                        Console.WriteLine("Account Number already exists. Please enter a different Account Number.");
+                        continue;
+                    }
+
                     break;
                 }
                 catch (Exception e)
