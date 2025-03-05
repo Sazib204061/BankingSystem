@@ -93,5 +93,14 @@ namespace Banking_System
             Console.WriteLine("Balance : "+Balance);
         }
 
+
+        public bool IsAccountExists(ref Dictionary<int, SavingsAccount> Accounts, int AccountNumber)
+        {
+            if (Accounts.ContainsKey(AccountNumber))
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }

@@ -87,6 +87,26 @@ namespace Banking_System
             Console.WriteLine("Interest Applied. New Balance: $" + Balance);
         }
 
+        public void FilterAccounts(ref Dictionary<int, SavingsAccount> Accounts)
+        {
+            Console.WriteLine("\n\nSavings Accounts : \n");
+            foreach (var Account in Accounts)
+            {
+                if (Account.Value.InterestRate != -1)
+                {
+                    Console.WriteLine("Account Number: " + Account.Value.AccountNumber + " | Account Holder Name: " + Account.Value.AccountHolderName + " | Balance: $" + Account.Value.Balance + " | Interest Rate: " + Account.Value.InterestRate + "%");
+                }
+            }
+            Console.WriteLine("\n\nRegular Accounts : \n");
+            foreach (var Account in Accounts)
+            {
+                if (Account.Value.InterestRate == -1)
+                {
+                    Console.WriteLine("Account Number: " + Account.Value.AccountNumber + " | Account Holder Name: " + Account.Value.AccountHolderName + " | Balance: $" + Account.Value.Balance);
+                }
+            }
+        }
+
 
     }
 }
